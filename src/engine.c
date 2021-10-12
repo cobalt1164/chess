@@ -2,6 +2,7 @@
 #include "types.h"
 
 int main() {
-    
+    initAll();
+
     return 0;
 }

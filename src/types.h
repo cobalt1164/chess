@@ -79,4 +79,6 @@ typedef struct {
 extern int board120ToBoard64[BOARD_NUM];
 extern int board64ToBoard120[64];
 
+extern void initAll();
+
 #endif
