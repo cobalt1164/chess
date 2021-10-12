@@ -1,3 +1,3 @@
 all:
-	gcc engine.c -o ./bin/engine
+	gcc engine.c init.c -o ./bin/engine
 
