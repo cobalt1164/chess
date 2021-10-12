@@ -74,7 +74,7 @@ typedef struct {
 
 } BOARD_STRUCT;
 
-#define FILE_RANK_TO_120SQUARE(file,rank) ( (21 + f) + (10 * r) )
+#define FILE_RANK_TO_120SQUARE(file,rank) ( (21 + file) + (10 * rank) )
 
 extern int board120ToBoard64[BOARD_NUM];
 extern int board64ToBoard120[64];
