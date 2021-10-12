@@ -27,4 +27,31 @@ enum {
 
 enum { FALSE, TRUE };
 
+typedef struct {
+
+    int pieces[BOARD_NUM];
+    U64 pawns[3];
+
+    int kingSquares[2];
+    int side;
+    int enPassant;
+    int fiftyMoveRule;
+    int ply;
+    int plyHistory;
+    U64 position;
+
+    // There are 13 indexes in the piece enum
+    int numPieces[13];
+    
+    // Anything not a pawn
+    int bigPieces[3];
+
+    // Rook and queen
+    int majorPieces[3];
+
+    // Bishop and knight
+    int minorPieces[3];
+
+} BOARD_STRUCT;
+
 #endif
