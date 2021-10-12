@@ -6,6 +6,8 @@ typedef unsigned long long U64;
 #define NAME "Engine"
 #define BOARD_NUM 120
 
+#define MAX_MOVES 2000
+
 enum { EMPTY, WHITE_PAWN, WHITE_KNIGHT, WHITE_BISHOP, WHITE_ROOK, WHITE_QUEEN, WHITE_KING, 
     BLACK_PAWN, BLACK_KNIGHT, BLACK_BISHOP, BLACK_ROOK, BLACK_QUEEN, BLACK_KING };
 
@@ -25,6 +27,9 @@ enum {
     SQ_NONE
 };
 
+enum { WHITE_KING_CASTLING = 1, WHITE_QUEEN_CASTLING = 2,
+    BLACK_KING_CASTLING = 4, BLACK_QUEEN_CASTLING = 8 };
+
 enum { FALSE, TRUE };
 
 typedef struct {
@@ -38,6 +43,7 @@ typedef struct {
     int fiftyMoveRule;
     int ply;
     int plyHistory;
+    int castlingPerms;
     U64 position;
 
     // There are 13 indexes in the piece enum
