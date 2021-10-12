@@ -33,6 +33,16 @@ enum { WHITE_KING_CASTLING = 1, WHITE_QUEEN_CASTLING = 2,
 enum { FALSE, TRUE };
 
 typedef struct {
+    int move;
+    int castlingPerms;
+    int enPassant;
+    int fiftyMoveRule;
+    U64 position;
+
+
+} HISTORY_STRUCT;
+
+typedef struct {
 
     int pieces[BOARD_NUM];
     U64 pawns[3];
@@ -57,6 +67,8 @@ typedef struct {
 
     // Bishop and knight
     int minorPieces[3];
+
+    HISTORY_STRUCT history[MAX_MOVES];
 
 } BOARD_STRUCT;
 
