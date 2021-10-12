@@ -71,6 +71,10 @@ typedef struct {
     int minorPieces[3];
 
     HISTORY_STRUCT history[MAX_MOVES];
+    
+    // One dimension for each piece type, another dimension for the multiples
+    // of each piece. The maximum number of a single piece possible is 10
+    int pieceList[13][10];
 
 } BOARD_STRUCT;
 
