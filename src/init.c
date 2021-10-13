@@ -4,8 +4,8 @@
 // Conversion between the 64 bit board and the size 120 array board is done by
 // indexing conversion arrays
 
-int board120ToBoard64[BOARD_NUM];
-int board64ToBoard120[64];
+int board120To64[BOARD_NUM];
+int board64To120[64];
 
 void initBoardConversion() {
     int i = 0;
@@ -16,18 +16,18 @@ void initBoardConversion() {
 
     // Initialize each element with an impossible value as a fail-safe
     for (i = 0; i < BOARD_NUM; ++i) {
-        board120ToBoard64[i] = 65;
+        board120To64[i] = 65;
     }
 
     for (i = 0; i < 64; ++i) {
-        board64ToBoard120[i] = 120;
+        board64To120[i] = 120;
     }
 
     for (rank = RANK_1; rank <= RANK_8; ++rank) {  
         for (file = FILE_A; file <= FILE_H; ++file) {
             square = fileRankTo120(file, rank);
-            board120ToBoard64[square] = square64;
-            board64ToBoard120[square64] = square;
+            board120To64[square] = square64;
+            board64To120[square64] = square;
             square64++;
         }
     }

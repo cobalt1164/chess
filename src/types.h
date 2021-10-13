@@ -79,10 +79,10 @@ typedef struct {
 } BOARD_STRUCT;
 
 #define fileRankTo120(file,rank) ( (21 + file) + (10 * rank) )
-#define fileRankTo64(file,rank) board120ToBoard64[fileRankTo120(file,rank)]
+#define fileRankTo64(file,rank) board120To64[fileRankTo120(file,rank)]
 
-extern int board120ToBoard64[BOARD_NUM];
-extern int board64ToBoard120[64];
+extern int board120To64[BOARD_NUM];
+extern int board64To120[64];
 
 extern void initAll();
 
