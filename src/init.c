@@ -25,7 +25,7 @@ void initBoardConversion() {
 
     for (rank = RANK_1; rank <= RANK_8; ++rank) {  
         for (file = FILE_A; file <= FILE_H; ++file) {
-            square = FILE_RANK_TO_120SQUARE(file, rank);
+            square = fileRankTo120(file, rank);
             board120ToBoard64[square] = square64;
             board64ToBoard120[square64] = square;
             square64++;
