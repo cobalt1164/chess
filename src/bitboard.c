@@ -8,8 +8,8 @@ void printBitBoard(U64 board) {
     U64 shift = 1ULL;
 
     printf("\n");
-    for (int file = FILE_A; file <= 8; ++file) {
-        for (int rank = RANK_1; rank <= 8; ++rank) {
+    for (int rank = RANK_1; rank <= RANK_8; ++rank) {
+        for (int file = FILE_A; file <= FILE_H; ++file) {
             square = fileRankTo64(file, rank);
             
             if ((shift << square) & board)
