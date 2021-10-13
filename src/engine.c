@@ -3,6 +3,6 @@
 
 int main() {
     initAll();
-
+    printBitBoard(0ULL);
     return 0;
 }

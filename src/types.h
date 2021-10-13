@@ -85,5 +85,5 @@ extern int board120To64[BOARD_NUM];
 extern int board64To120[64];
 
 extern void initAll();
-
+extern void printBitBoard();
 #endif
