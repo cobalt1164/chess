@@ -7,6 +7,11 @@
 int board120To64[BOARD_NUM];
 int board64To120[64];
 
+// Set/clear masks for the 64 bit boards
+
+U64 SetMask[64];
+U64 ClearMask[64];
+
 void initBoardConversion() {
     int i = 0;
     int square64 = 0;
@@ -33,6 +38,16 @@ void initBoardConversion() {
     }
 }
 
+void initBitMasks() {
+    int i = 0;
+    for (i = 0; i < 64; ++i) {
+        SetMask[i] = 0ULL;
+        SetMask[i] |= 1ULL << i;
+        ClearMask[i] = ~SetMask[i];
+    }
+}
+
 void initAll() {
     initBoardConversion();
+    initBitMasks();
 }

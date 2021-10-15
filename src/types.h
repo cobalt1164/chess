@@ -80,9 +80,13 @@ typedef struct {
 
 #define fileRankTo120(file,rank) ( (21 + file) + (10 * rank) )
 #define fileRankTo64(file,rank) board120To64[fileRankTo120(file,rank)]
+#define setBit(board,square) board |= SetMask[square]
+#define clearBit(board,square) board &= ClearMask[square]
 
 extern int board120To64[BOARD_NUM];
 extern int board64To120[64];
+extern U64 SetMask[64];
+extern U64 ClearMask[64];
 
 extern void initAll();
 extern void printBitBoard(U64 board);
