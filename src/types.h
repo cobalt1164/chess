@@ -87,6 +87,9 @@ extern int board120To64[BOARD_NUM];
 extern int board64To120[64];
 extern U64 SetMask[64];
 extern U64 ClearMask[64];
+extern U64 pieceKeys[13][64];
+extern U64 sideKey;
+extern U64 castleKeys[16];
 
 extern void initAll();
 extern void printBitBoard(U64 board);
