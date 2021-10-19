@@ -61,7 +61,24 @@ void initBitMasks() {
     }
 }
 
+void initHashKeys() {
+    int i = 0;
+    int j = 0;
+    for (i = 0; i < 13; ++i) {
+        for (j = 0; j < 64; ++j) {
+            pieceKeys[i][j] = RAND_64;
+        }
+    }
+
+    for (i = 0; i < 16; ++i) {
+        castleKeys[i] = RAND_64;
+    }
+
+    sideKey = RAND_64;
+}
+
 void initAll() {
     initBoardConversion();
     initBitMasks();
+    initHashKeys();
 }
