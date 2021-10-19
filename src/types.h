@@ -27,8 +27,8 @@ enum {
     SQ_NONE
 };
 
-// Castling permissions are a 4 bit value, white king castling = 1000, 
-// white queen castling = 0100, and so on
+// Castling permissions are a 4 bit value, white king castling = 0001, 
+// white queen castling = 0010, and so on
 enum { WHITE_KING_CASTLING = 1, WHITE_QUEEN_CASTLING = 2,
     BLACK_KING_CASTLING = 4, BLACK_QUEEN_CASTLING = 8 };
 
@@ -55,7 +55,7 @@ typedef struct {
     int fiftyMoveRule;
     int ply;
     int plyHistory;
-    int castlingPerms;
+    int castlePerms;
     U64 position;
 
     // There are 13 indexes in the piece enum
