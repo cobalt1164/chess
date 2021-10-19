@@ -2,10 +2,10 @@
 #include "stdio.h"
 #include "stdlib.h"
 
-#define RAND_64 (   (U64)rand() + \
-                    (U64)rand() << 15 + \
-                    (U64)rand() << 30 + \
-                    (U64)rand() << 45 + \
+#define RAND_64 (   (U64)rand() | \
+                    (U64)rand() << 15 | \
+                    (U64)rand() << 30 | \
+                    (U64)rand() << 45 | \
                     ((U64)rand() * 0xf) << 60   )
 
 // Conversion between the 64 bit board and the size 120 array board is done by
