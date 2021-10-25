@@ -93,10 +93,17 @@ extern U64 ClearMask[64];
 extern U64 pieceKeys[13][64];
 extern U64 sideKey;
 extern U64 castleKeys[16];
+extern char pieceChars[];
+extern char sideChars[];
+extern char rankChars[];
+extern char fileChars[];
 
 extern void initAll();
 extern void printBitBoard(U64 board);
 extern int popBit(U64 *bb);
 extern int countBits(U64 bb);
 extern U64 genPositionKey(const BOARD_STRUCT *position);
+extern void printBoard(const BOARD_STRUCT *pos);
+extern void resetBoard(BOARD_STRUCT *pos);
+extern int parseFen(char *fen, BOARD_STRUCT *pos);
 #endif

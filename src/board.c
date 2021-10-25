@@ -141,3 +141,33 @@ int parseFen(char *fen, BOARD_STRUCT *board) {
 
     return 0;
 }
+
+void printBoard(const BOARD_STRUCT *pos) {
+    int square, file, rank, pieceOnSquare;
+    printf("Board:\n");
+
+    for (rank = RANK_8; rank >= RANK_1; --rank) {
+        printf("%d  ", rank + 1);
+        
+        for (file = FILE_A; file <= FILE_H; ++file) {
+            square = fileRankTo120(file, rank);
+            pieceOnSquare = pos->pieces[square];
+            printf("%3c", pieceChars[pieceOnSquare]);
+        }
+        printf("\n");
+    }
+    printf("\n   ");
+    
+    for (file = FILE_A; file <= FILE_H; ++file) {
+        printf("%3c", 'a' + file);
+    }
+    printf("\n");
+    printf("side:%c\n", sideChars[pos->side]);
+    printf("enPassant:%d\n", pos->enPassant);
+    printf("castling:%c%c%c%c\n", 
+            pos->castlePerms & WHITE_KING_CASTLING ? 'K' : '-',
+            pos->castlePerms & WHITE_QUEEN_CASTLING ? 'Q' : '-',
+            pos->castlePerms & BLACK_KING_CASTLING ? 'k' : '-',
+            pos->castlePerms & BLACK_QUEEN_CASTLING ? 'q' : '-'
+          );
+}
