@@ -65,13 +65,16 @@ typedef struct {
     int numPieces[13];
     
     // Anything not a pawn
-    int bigPieces[3];
+    int bigPieces[2];
 
     // Rook and queen
-    int majorPieces[3];
+    int majorPieces[2];
 
     // Bishop and knight
-    int minorPieces[3];
+    int minorPieces[2];
+
+    // Value of material score for black/white
+    int material[2];
 
     HISTORY_STRUCT history[MAX_MOVES];
     
@@ -93,10 +96,17 @@ extern U64 ClearMask[64];
 extern U64 pieceKeys[13][64];
 extern U64 sideKey;
 extern U64 castleKeys[16];
+
 extern char pieceChars[];
 extern char sideChars[];
 extern char rankChars[];
 extern char fileChars[];
+
+extern int bigPiece[13];
+extern int majorPiece[13];
+extern int minorPiece[13];
+extern int pieceValue[13];
+extern int pieceColor[13];
 
 extern void initAll();
 extern void printBitBoard(U64 board);
