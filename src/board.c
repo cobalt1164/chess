@@ -170,4 +170,5 @@ void printBoard(const BOARD_STRUCT *pos) {
             pos->castlePerms & BLACK_KING_CASTLING ? 'k' : '-',
             pos->castlePerms & BLACK_QUEEN_CASTLING ? 'q' : '-'
           );
+    printf("positionKey:%llX\n",pos->positionKey);
 }
