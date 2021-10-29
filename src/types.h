@@ -80,6 +80,7 @@ typedef struct {
     
     // One dimension for each piece type, another dimension for the multiples
     // of each piece. The maximum number of a single piece possible is 10
+    // pieceList[WHITE_PAWN][3] gets the square of the 4th multiple
     int pieceList[13][10];
 
 } BOARD_STRUCT;
@@ -113,7 +114,8 @@ extern void printBitBoard(U64 board);
 extern int popBit(U64 *bb);
 extern int countBits(U64 bb);
 extern U64 genPositionKey(const BOARD_STRUCT *position);
-extern void printBoard(const BOARD_STRUCT *pos);
-extern void resetBoard(BOARD_STRUCT *pos);
-extern int parseFen(char *fen, BOARD_STRUCT *pos);
+extern void printBoard(const BOARD_STRUCT *board);
+extern void resetBoard(BOARD_STRUCT *board);
+extern int parseFen(char *fen, BOARD_STRUCT *board);
+extern void updatePieceLists(BOARD_STRUCT *board);
 #endif

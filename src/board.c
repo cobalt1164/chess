@@ -2,6 +2,29 @@
 #include "types.h"
 #include "assert.h"
 
+void updatePieceLists(BOARD_STRUCT *board) {
+    int piece, index, color;
+
+    for (index = 0; index < BOARD_NUM; ++index) {
+        piece = board->pieces[index];
+        color = pieceColor[piece];
+
+        if (piece != EMPTY) {
+            if (majorPiece[piece] == TRUE) board->majorPieces[color]++;
+            if (minorPiece[piece] == TRUE) board->minorPieces[color]++;
+            if (bigPiece[piece] == TRUE) board->bigPieces[color]++;
+        }
+    }
+
+    board->material[color] += pieceValue[piece];
+
+    board->pieceList[piece][board->numPieces[piece]] = index;
+    board->numPieces[piece]++;
+
+    if (piece == WHITE_KING) board->kingSquares[WHITE] = index;
+    if (piece == BLACK_KING) board->kingSquares[BLACK] = index;
+
+}
 
 void resetBoard(BOARD_STRUCT *board) {
     int i = 0;
@@ -13,6 +36,7 @@ void resetBoard(BOARD_STRUCT *board) {
     for (i = 0; i < 64; ++i) {
         board->pieces[board64To120[i]] = EMPTY;
     }
+
 
     for (i = 0; i < 3; ++i) {
         board->bigPieces[i] = 0;
@@ -138,6 +162,7 @@ int parseFen(char *fen, BOARD_STRUCT *board) {
     }
 
     board->positionKey = genPositionKey(board);
+    updatePieceLists(board);
 
     return 0;
 }
