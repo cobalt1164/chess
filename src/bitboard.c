@@ -35,7 +35,7 @@ void printBitBoard(U64 board) {
     U64 shift = 1ULL;
 
     printf("\n");
-    for (int rank = RANK_1; rank <= RANK_8; ++rank) {
+    for (int rank = RANK_8; rank >= RANK_1; --rank) {
         for (int file = FILE_A; file <= FILE_H; ++file) {
             square = fileRankTo64(file, rank);
             
