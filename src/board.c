@@ -14,16 +14,24 @@ void updatePieceLists(BOARD_STRUCT *board) {
             if (minorPiece[piece] == TRUE) board->minorPieces[color]++;
             if (bigPiece[piece] == TRUE) board->bigPieces[color]++;
         }
+    
+
+        board->material[color] += pieceValue[piece];
+
+        board->pieceList[piece][board->numPieces[piece]] = index;
+        board->numPieces[piece]++;
+
+        if (piece == WHITE_KING) board->kingSquares[WHITE] = index;
+        if (piece == BLACK_KING) board->kingSquares[BLACK] = index;
+
+        if (piece == WHITE_PAWN) {
+            setBit(board->pawns[WHITE], board120To64[index]);
+            setBit(board->pawns[BOTH], board120To64[index]);
+        } else if (piece == BLACK_PAWN) {
+            setBit(board->pawns[BLACK], board120To64[index]);
+            setBit(board->pawns[BOTH], board120To64[index]);
+        }
     }
-
-    board->material[color] += pieceValue[piece];
-
-    board->pieceList[piece][board->numPieces[piece]] = index;
-    board->numPieces[piece]++;
-
-    if (piece == WHITE_KING) board->kingSquares[WHITE] = index;
-    if (piece == BLACK_KING) board->kingSquares[BLACK] = index;
-
 }
 
 void resetBoard(BOARD_STRUCT *board) {
